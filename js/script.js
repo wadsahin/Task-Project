@@ -41,23 +41,40 @@ filter.addEventListener('keyup', filterTask);
   }
 
   // clear task function
-  function clearTask(e){
-    if(confirm("It will delete all you Tasks !!")){
-        ul.innerHTML = '';
-
+  function clearTask(){
+    if(confirm("It will remove All data!!")){
+      ul.innerHTML = '';
     }
   }
 
-  // filter task function
+
+  // filter task function-1 || using forEach loop
+
+  // function filterTask(e){
+  //   let text = e.target.value.toLowerCase();
+  //   document.querySelectorAll('li').forEach(task =>{
+  //       let item = task.firstChild.textContent;
+  //       if(item.toLowerCase().indexOf(text) != -1){
+  //         task.style.display = 'block';
+  //       }else{
+  //         task.style.display = 'none';
+  //       }
+        
+  //   })
+  // }
+
+
+  //filter task function-2 || using for loop
   function filterTask(e){
     let text = e.target.value.toLowerCase();
-    document.querySelectorAll('li').forEach(task =>{
-        let item = task.firstChild.textContent;
-        if(item.toLowerCase().indexOf(text) != -1){
-            task.style.display = 'block';
-        }else{
-            task.style.display = 'none';
-        }
-    })
+    let all_li = document.querySelectorAll('li');
+    for(let i = 0; i < all_li.length; i++){
+      let item = all_li[i].firstChild.textContent;
+      if(item.toLowerCase().indexOf(text) != -1){
+        all_li[i].style.display = 'block';
+      }else{
+        all_li[i].style.display = 'none';
+      }
+    }
   }
 
